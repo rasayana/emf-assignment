@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ip_model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ipl.model.annotated.presentation.AnnotatedModelWizardID"
+            name="%_UI_AnnotatedModelWizard_label"
+            class="ipl.model.annotated.presentation.AnnotatedModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AnnotatedModelFile.gif">
+         <description>%_UI_AnnotatedModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ip_model -->
+      <editor
+            id="ipl.model.annotated.presentation.AnnotatedEditorID"
+            name="%_UI_AnnotatedEditor_label"
+            icon="icons/full/obj16/AnnotatedModelFile.gif"
+            extensions="annotated"
+            class="ipl.model.annotated.presentation.AnnotatedEditor"
+            contributorClass="ipl.model.annotated.presentation.AnnotatedActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

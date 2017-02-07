@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="annotated" nsURI="http:///ipl/model/annotated.ecore" nsPrefix="ipl.model.annotated">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Captain" eSuperTypes="#//Player"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Match">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="veue" eType="#//Venue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matchDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="overs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teamA" eType="#//Team"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teamB" eType="#//Team"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toss" eType="#//Toss" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umpires" upperBound="-1"
+        eType="#//Umpire" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" eType="#//MatchResult"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MatchResult">
+    <eLiterals name="TIE" literal="Match Tie"/>
+    <eLiterals name="ABANDONED" value="1" literal="Match Abandoned"/>
+    <eLiterals name="WINNER_A" value="2" literal="Won by Team A"/>
+    <eLiterals name="WINNER_B" value="3" literal="Won by Team B"/>
+    <eLiterals name="UNDER_PROGRESS" value="4" literal="Under Progress"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="#//AbstractEntity">
+    <eOperations name="canBowl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="team" eType="#//Team"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Team">
+    <eOperations name="get12thMan" eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="batsmen" upperBound="-1"
+        eType="#//Player" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bowlers" upperBound="-1"
+        eType="#//Player" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="captain" eType="#//Captain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viceCaptain" eType="#//ViceCaptain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wicketKeeper" eType="#//WicketKeeper"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Toss">
+    <eLiterals name="TEAM_A" literal="Toss Won by Team A"/>
+    <eLiterals name="TEAM_B" value="1" literal="Toss Won by Team B"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tournament">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teams" upperBound="-1"
+        eType="#//Team" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="venues" upperBound="-1"
+        eType="#//Venue" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
+        eType="#//Match" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Umpire" eSuperTypes="#//AbstractEntity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Venue" eSuperTypes="#//AbstractEntity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ViceCaptain" eSuperTypes="#//Player"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WicketKeeper" eSuperTypes="#//Player"/>
+</ecore:EPackage>

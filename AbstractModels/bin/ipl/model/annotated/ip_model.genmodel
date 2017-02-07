@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/AbstractModels/src" modelPluginID="AbstractModels"
+    modelName="Ip_model" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.java" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Annotated" basePackage="ipl.model" disposableProviderFactory="true"
+      ecorePackage="annotated.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="annotated.ecore#//MatchResult">
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//MatchResult/TIE"/>
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//MatchResult/ABANDONED"/>
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//MatchResult/WINNER_A"/>
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//MatchResult/WINNER_B"/>
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//MatchResult/UNDER_PROGRESS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="annotated.ecore#//Toss">
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//Toss/TEAM_A"/>
+      <genEnumLiterals ecoreEnumLiteral="annotated.ecore#//Toss/TEAM_B"/>
+    </genEnums>
+    <genClasses ecoreClass="annotated.ecore#//AbstractEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotated.ecore#//AbstractEntity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="annotated.ecore#//Captain"/>
+    <genClasses ecoreClass="annotated.ecore#//Match">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference annotated.ecore#//Match/veue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotated.ecore#//Match/matchDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotated.ecore#//Match/overs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Match/teamA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Match/teamB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotated.ecore#//Match/toss"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Match/umpires"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotated.ecore#//Match/result"/>
+    </genClasses>
+    <genClasses ecoreClass="annotated.ecore#//Player">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference annotated.ecore#//Player/team"/>
+      <genOperations ecoreOperation="annotated.ecore#//Player/canBowl"/>
+    </genClasses>
+    <genClasses ecoreClass="annotated.ecore#//Team">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute annotated.ecore#//Team/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Team/batsmen"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Team/bowlers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference annotated.ecore#//Team/captain"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference annotated.ecore#//Team/viceCaptain"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference annotated.ecore#//Team/wicketKeeper"/>
+      <genOperations ecoreOperation="annotated.ecore#//Team/get12thMan"/>
+    </genClasses>
+    <genClasses ecoreClass="annotated.ecore#//Tournament">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Tournament/teams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Tournament/venues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference annotated.ecore#//Tournament/matches"/>
+    </genClasses>
+    <genClasses ecoreClass="annotated.ecore#//Umpire"/>
+    <genClasses ecoreClass="annotated.ecore#//Venue"/>
+    <genClasses ecoreClass="annotated.ecore#//ViceCaptain"/>
+    <genClasses ecoreClass="annotated.ecore#//WicketKeeper"/>
+  </genPackages>
+</genmodel:GenModel>
